@@ -3,7 +3,7 @@ import parser_1
 from flask import render_template
 import generate_pdf
 
-openai.api_key = "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"
+
 
 
 def generate_synthesis(extracted_text):
