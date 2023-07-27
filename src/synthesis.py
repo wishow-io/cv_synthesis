@@ -1,8 +1,14 @@
 import openai
 import parser_1 as parser_1
 from flask import render_template
+<<<<<<< HEAD:src/synthesis.py
 from generate_pdf import download_pdf
 from generate_pdf import create_pdf_from_synthesis
+=======
+import generate_pdf
+
+
+>>>>>>> a8c13cc60f06c7f36546c537949785f336b58119:synthesis.py
 
 
 def generate_synthesis(extracted_text):
