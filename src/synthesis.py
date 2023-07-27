@@ -1,9 +1,8 @@
 import openai
-import parser_1
+import parser_1 as parser_1
 from flask import render_template
-import generate_pdf
-
-openai.api_key = "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"
+from generate_pdf import download_pdf
+from generate_pdf import create_pdf_from_synthesis
 
 
 def generate_synthesis(extracted_text):
@@ -44,5 +43,5 @@ def from_pdf_to_syntesis(pdf):
     extracted_text = parser_1.parse_pdf(pdf)
     synthesis_result = generate_synthesis(extracted_text)
     name_result = extract_name_from_cv(extracted_text)
-    generate_pdf.create_pdf_from_synthesis(synthesis_result, name_result)
-    return display_synthesis(synthesis_result, name_result)
+    filepath = create_pdf_from_synthesis(synthesis_result, name_result)
+    return download_pdf(filepath, name_result)
